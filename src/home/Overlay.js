@@ -29,16 +29,13 @@ const Overlay = ({
         right: 0,
         bottom: 0,
         backgroundColor: 'red',
-
-        // height: ;
-        // zIndex: -10
     };
 
     return (
         <View style={[bottomOverlayDefaultStyle]}>
-            {/* <View style={{
+            <View style={{
                 height: 200,
-            }} /> */}
+            }} />
 
             {/* <LinearGradient
                 colors={gradientColors}

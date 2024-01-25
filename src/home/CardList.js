@@ -1,18 +1,3 @@
-
-
-
-///
-///     (╯ ͡❛ ͜ʖ ͡❛)╯┻━┻
-/// **************************************************************
-/// Instagram @ys.sherzad  *************************
-/// Twitter @ys_sherzad  ********************
-/// **************************************************************
-/// "Make Everyday Count" 🇦🇫
-///
-///
-
-
-
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Dimensions, Image } from 'react-native';
 import { BORDER_RADIUS, BORDER_WIDTH } from '../utils';
@@ -34,16 +19,13 @@ import { snapPoint } from 'react-native-redash';
 import Space from '../shared/Space';
 
 const { width } = Dimensions.get('window');
-
 const CARD_HEIGHT = 280;
-
 const CARD_WIDTH = width - 80;
 const SPAN_POINTS = [-width, 0, width];
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 const CardList = ({
     groupSavings,
     onAnimationStart,
@@ -79,27 +61,18 @@ const CardList = ({
         </View>
     );
 };
-
-
-
-
 const Card = React.memo(({ item, index, onAnimationStart, onAnimationEnd, shuffleBack }) => {
-
     const DURATION = 250;
     const ROTATEX = 15;
-
     const DETAIL_SECTION_HEIGHT = 100;
-
     const x = useSharedValue(width);
     const y = useSharedValue(0);
     const theta = randomNumber(-4, 4);
     const rotateZ = useSharedValue(0);
     const rotateX = useSharedValue(ROTATEX);
     const scale = useSharedValue(1);
-
     const cardHeight = useSharedValue(CARD_HEIGHT);
     const opacity = useSharedValue(0);
-
     useEffect(() => {
         const delay = index * DURATION;
         x.value = withDelay(
@@ -108,7 +81,6 @@ const Card = React.memo(({ item, index, onAnimationStart, onAnimationEnd, shuffl
 
         rotateZ.value = withDelay(delay, withSpring(theta));
     }, [index, rotateZ, theta, y]);
-
     useAnimatedReaction(
         () => shuffleBack.value,
         (v) => {
@@ -124,7 +96,6 @@ const Card = React.memo(({ item, index, onAnimationStart, onAnimationEnd, shuffl
             }
         }
     );
-
     const onGestureEvent = useAnimatedGestureHandler({
         onStart: (_, ctx) => {
             ctx.x = x.value;
@@ -134,9 +105,7 @@ const Card = React.memo(({ item, index, onAnimationStart, onAnimationEnd, shuffl
             rotateX.value = withTiming(0, { easing: Easing.inOut(Easing.ease) });
             cardHeight.value = withTiming(CARD_HEIGHT + DETAIL_SECTION_HEIGHT, { easing: Easing.inOut(Easing.ease) });
             opacity.value = withDelay(80, withTiming(1, { easing: Easing.inOut(Easing.ease) }));
-
             runOnJS(onAnimationStart)();
-
         },
         onActive: ({ translationX, translationY }, ctx) => {
             if (translationY < -90) {
@@ -164,12 +133,8 @@ const Card = React.memo(({ item, index, onAnimationStart, onAnimationEnd, shuffl
             opacity.value = withTiming(0, { duration: 100, easing: Easing.inOut(Easing.ease) });
 
             runOnJS(onAnimationEnd)();
-
         }
-
     });
-
-
     const cardStyle = useAnimatedStyle(() => ({
         transform: [
             { perspective: 2000 },
@@ -182,12 +147,9 @@ const Card = React.memo(({ item, index, onAnimationStart, onAnimationEnd, shuffl
         height: cardHeight.value,
 
     }));
-
     const detailSectionStyle = useAnimatedStyle(() => ({
         opacity: opacity.value
     }));
-
-
     const renderIconAndText = (imgPath, text) => (
         <View style={{
             flexDirection: 'row',

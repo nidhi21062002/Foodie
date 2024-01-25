@@ -6,9 +6,7 @@ import { LAYOUT_HORIZONTAL_PADDING } from '../utils';
 
 const CONTAINER_HEIGHT = 140;
 
-const QuestionSection = ({
-    params,
-}) => (
+const QuestionSection = ({ params }) => (
     <View style={{
         height: CONTAINER_HEIGHT,
         justifyContent: 'center',

@@ -6,7 +6,6 @@ import Text from '../shared/Text';
 
 const TopTabs = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
-
     return (
         <View style={{
             height: 50,
@@ -20,7 +19,6 @@ const TopTabs = () => {
                 }}
             >
                 {tabData.map(({ title }, index) => {
-
                     return (
                         <Tab
                             key={index}
@@ -32,8 +30,6 @@ const TopTabs = () => {
                     );
                 })}
             </ScrollView>
-
-
         </View>
     );
 };

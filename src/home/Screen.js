@@ -12,6 +12,7 @@ import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from '
 import { groupSavings } from '../repo/data';
 import Text from '../shared/Text';
 import ScaleAnimation from '../shared/ScaleAnimation';
+import CreateSavingButton from './CreateSavingButton';
 
 const gradientColors = [
     'rgba(0,0,0,0.0)',
@@ -23,50 +24,41 @@ const gradientColors = [
 const Home = () => {
     const [showOverlay, setShowOverlay] = useState(false);
     const opacity = useSharedValue(0);
-
     onCardAnimationStart = () => {
         setShowOverlay(true);
         opacity.value = withTiming(1, { easing: Easing.inOut(Easing.ease) });
     };
-
     onCardAnimationEnd = () => {
         opacity.value = withTiming(0, { easing: Easing.inOut(Easing.ease) });
         setTimeout(() => {
             setShowOverlay(false);
         }, 300);
     };
-
     const bottomOverlayStyle = useAnimatedStyle(() => ({
         opacity: opacity.value,
     }));
-
     const bottomOverlayDefaultStyle = {
         ...StyleSheet.absoluteFillObject,
         top: SCR_HEIGHT * (2 / 3),
         zIndex: 1
     };
-
     return (
         <View style={{
             flex: 1,
             backgroundColor: '#fff'
         }}>
-
+            <CreateSavingButton />
             <ScaleAnimation>
                 <Header />
             </ScaleAnimation>
-
             <ScrollView>
                 <ScaleAnimation>
                     <QuestionSection />
                 </ScaleAnimation>
-
                 <ScaleAnimation>
                     <TopTabs />
                 </ScaleAnimation>
-
                 <Space size={14} />
-
                 <View style={{
                     zIndex: 3
                 }}>
@@ -76,18 +68,13 @@ const Home = () => {
                         onAnimationEnd={onCardAnimationEnd}
                     />
                 </View>
-
                 <Space size={35} />
-
                 <ScaleAnimation>
                     <MostPopular />
                 </ScaleAnimation>
             </ScrollView>
-
-
             {showOverlay && (
                 <Animated.View style={[bottomOverlayDefaultStyle, bottomOverlayStyle]}>
-
                     <LinearGradient
                         colors={gradientColors}
                         style={{

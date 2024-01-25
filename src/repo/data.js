@@ -1,17 +1,4 @@
 export const groupSavings = [
-    // {
-    //     id: 1,
-    //     img: require('../../assets/images/mario-burger-unsplash.jpg'),
-    //     title: `Mario's Burger`,
-    //     price: 26.5
-    // },
-
-    // {
-    //     id: 3,
-    //     img: require('../../assets/images/lindsay-moe-noodle-unsplash.jpg'),
-    //     title: 'Spicy Noodle RR',
-    //     price: 20.5
-    // },
     {
         id: 1,
         img: require('../../assets/images/vicky-ng-unsplash.jpg'),

@@ -3,8 +3,6 @@ import { View, Image } from 'react-native';
 import { BORDER_WIDTH, HEADER_HEIGHT, LAYOUT_HORIZONTAL_PADDING } from '../utils';
 import { theme } from '../theme';
 import Space from '../shared/Space';
-
-
 const Header = ({
     params,
 }) => (
@@ -47,7 +45,6 @@ const Header = ({
                     }}
                 />
             </View>
-
             <View style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -75,14 +72,12 @@ const Header = ({
                         source={require('../../assets/icons/search.png')}
                         style={{
                             position: 'absolute',
-
                             height: '100%',
                             width: '100%',
                             resizeMode: 'cover',
                             borderRadius: 99,
                         }}
                     />
-
                 </View>
                 <Space horizontal size={8} />
                 <View style={{
@@ -114,9 +109,7 @@ const Header = ({
                             borderRadius: 99,
                         }}
                     />
-
                 </View>
-
             </View>
         </View>
     </View>

@@ -13,7 +13,6 @@ export const gradientColors = [
     'rgba(0,0,0,0.47)',
     'rgba(0,0,0,0.76)'
 ];
-
 const renderIconAndText = (imgPath, text) => (
     <View style={{
         flexDirection: 'row',
@@ -104,7 +103,6 @@ const MostPopular = () => {
                         }}>Breakfast</Text>
 
                     </View>
-
                     <View style={{
                         position: 'absolute',
                         top: 22,
@@ -116,9 +114,7 @@ const MostPopular = () => {
                     }}>
                         {renderIconAndText(require('../../assets/icons/star.png'), '4.6')}
                     </View>
-
                     <LinearGradient colors={gradientColors} style={styles.gradientLayer} />
-
                     <View style={{
                         position: 'absolute',
                         bottom: 22,

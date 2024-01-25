@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ActivityIndicator,
@@ -32,13 +24,13 @@ const App = () => {
         <SafeAreaView style={{ flex: 1, backgroundColor: theme.white }} edges={['top', 'right', 'left']}>
           <StatusBar barStyle='dark-content' />
           {isLoading && (
-            <View style={{flex:1, justifyContent: "center", alignItems: 'center'}}>
+            <View style={{ flex: 1, justifyContent: "center", alignItems: 'center' }}>
               <ActivityIndicator size={'small'} color='#000' />
             </View>
           )}
           {!isLoading && (<Home />)}
-          </SafeAreaView>
-        </SafeAreaProvider>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 };
